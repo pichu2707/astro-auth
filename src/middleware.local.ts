@@ -8,6 +8,8 @@ const privateRoutes = ["/protected"];
 
 export const onRequest = defineMiddleware(async ({ url, request }, next) => {
     const authHeaders = request.headers.get('authorization') ?? '';
+
+
     if ( privateRoutes.includes(url.pathname)) {
         return checkLocalAuth(authHeaders, next);
 }
@@ -25,7 +27,6 @@ const checkLocalAuth = async ( authHeaders: string, next: MiddlewareNext ) => {
         if ( user === 'admin' && password === 'admin' ) {
             return next();
         }
-        console.log("decodedValue", decodedValue);
     }
         return new Response('Auth Necesaria', {
             status: 401,

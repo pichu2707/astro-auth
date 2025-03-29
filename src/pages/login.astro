@@ -1,5 +1,4 @@
 ---
-import { effect } from "astro:schema";
 import AuthLayout from "../layouts/AuthLayout.astro";
 
 const email = Astro.cookies.get("email")?.value ?? '';
@@ -142,6 +141,6 @@ try {
   console.log(error);
 }
 
-btnSubmit.removeAttribute('disabled')
+btnGoogle.removeAttribute('disabled')
 });
 </script>

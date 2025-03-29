@@ -18,6 +18,7 @@ export const onRequest = defineMiddleware(async ({ url, request, locals, redirec
     const isLoggedId = !!firebase.auth.currentUser;
     const user = firebase.auth.currentUser
     
+    locals.isLoggedIn = isLoggedId;
     if (user) {
         locals.user = {
             email: user.email!,

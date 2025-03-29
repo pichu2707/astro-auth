@@ -1,5 +1,5 @@
-import { registerUser, logout, loginWithGoogle } from "./auth";
-import { loginUser } from "./auth/login.actions";
+import { registerUser, logout, loginWithGoogle, loginUser } from "./auth";
+
 
 
 

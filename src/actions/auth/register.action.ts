@@ -48,10 +48,7 @@ export const registerUser = defineAction({
                 url: `${import.meta.env.BASE_URL}/protected/verify-email`,
             });
 
-            return {
-                uid: user.user.uid,
-                email: user.user.email,
-            };
+            return user;
 
         } catch ( error ) {
             const firebaseError = error as AuthError;

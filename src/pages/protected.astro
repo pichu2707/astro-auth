@@ -8,9 +8,9 @@ if ( !isLoggedIn || !user){
   return Astro.redirect('/login')
 }
 
-const { email, avatar, emailVerified, name } = user;
+const { email, avatar, name } = user;
 
-//const firebaseUser = firebase.auth.currentUser;
+const firebaseUser = firebase.auth.currentUser;
 
 // protección de página para únicamente llegar a traves de una redirección.
 // if ( true ) {
@@ -21,7 +21,8 @@ const { email, avatar, emailVerified, name } = user;
 // if ( firebaseUser === null ) {
 //     return Astro.redirect('/login')
 // }
-//  await firebaseUser?.reload(); //Actualiza el usuario para obtener la información más reciente
+await firebaseUser?.reload(); //Actualiza el usuario para obtener la información más reciente
+const { emailVerified } = firebaseUser!;
 // const {
 //     displayName,
 //     email, 
